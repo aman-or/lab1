@@ -1,22 +1,20 @@
-import time
+def solution():
+    x = input().split()
+    y = []
+    z = []
+    for i in range(len(x)):
+        if i + 1 < len(x):
+            if x[i].isalpha() and x[i + 1].isalpha():
+                y.append(x[i])
+                y.append(x[i + 1])
+            if len(y) == 2:
+                z.extend(y)
+                y.clear()
+    if len(z) <= 1:
+        print('Мало слов!')
+    else:
+        for i in range(0, len(z), 2):
+            print(z[i], z[i + 1])
 
 
-def real_time_timer():
-    start_time = time.time()  # Получаем текущее время в секундах с начала эпохи (обычно 1 января 1970 года)
-
-    while True:
-        current_time = time.time()  # Получаем текущее время
-        elapsed_time = current_time - start_time  # Вычисляем прошедшее время
-
-        # Преобразуем прошедшее время в формат часы:минуты:секунды
-        hours, remainder = divmod(elapsed_time, 3600)
-        minutes, seconds = divmod(remainder, 60)
-
-        # Выводим время на экран
-        print(f"Прошло времени: {int(hours)}:{int(minutes)}:{int(seconds)}", end='\r')
-
-        time.sleep(1)  # Ждем 1 секунду перед обновлением времени
-
-
-if __name__ == "__main__":
-    real_time_timer()
+solution()
