@@ -56,7 +56,7 @@ def ex10_3():
 
     f_w = open('ru-en.txt', 'w')
     for ru, en in sorted(dict_ru_en.items()):
-        f_w.write(ru + ' - ' + ', '.join(en) + '\n')
+        f_w.write(ru + ' - ' + ', '.join(en) + '\n  ')
 
 
 ex = int(input('Введите номер задания: '))
