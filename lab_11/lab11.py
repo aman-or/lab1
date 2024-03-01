@@ -25,7 +25,7 @@ if __name__ == "__main__":
             # first
             newRestaurant = Restaurant('La Trattoria', 'итальянская', None)
             print("Название ресторана:", newRestaurant.restaurant_name)
-            print("Тип кухни:", newRestaurant.cuisine_type)
+            print("Тип кухни: ", newRestaurant.cuisine_type)
             newRestaurant.describe_restaurant()
             newRestaurant.open_restaurant()
         case 2:
