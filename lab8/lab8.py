@@ -39,7 +39,7 @@ def ex8_3():
     text = input('Напишите имя пользователя, которого вы хотите поздравить: ')
     font = ImageFont.truetype("arial_bolditalicmt.ttf", 46)
     drawer = ImageDraw.Draw(image)
-    drawer.text((50, image.width / 1.5 + 130), f'{text}, поздравляю!', fill='white', font=font)
+    drawer.text((50, image.width / 1.5 + 130), f'{text}, поздравляю! ', fill='white', font=font)
     image.save('edit_images/img_with_name.png')
 
 
