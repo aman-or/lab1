@@ -84,33 +84,69 @@ if __name__ == "__main__":
             ice_cream_restaurant.soft_ice_cream('Шоколадное', 'Мята')
 
         case 3:
-            pass
-            # в реализации
-            # window = Tk()
-            # window.geometry('900x700')
-            # label1 = Label(window, text='Название заведения', font='times 25 bold')
-            # label1.place(x=450, y=50, anchor='center')
-            # label2 = Label(window, text='MENU', font='times 20 bold')
-            # label2.place(x=600, y=140)
-            # label3 = Label(window, text='ванильное', font='times 12')
-            # label3.place(x=600, y=200)
-            # label4 = Label(window, text='шоколадное', font='times 12')
-            # label4.place(x=600, y=230)
-            #
-            # label5 = Label(window, text='Выберите действие', font='times 17')
-            # label5.place(x=20, y=140)
-            #
-            # label6 = Label(window, text='Добавить мороженное', font='times 12')
-            # label6.place(x=20, y=200)
-            # e1 = Entry(window)
-            # e1.place(x=20, y=230)
-            #
-            # label7 = Label(window, text='Удалить', font='times 12')
-            # label7.place(x=20, y=270)
-            # e2 = Entry(window)
-            # e2.place(x=20, y=300)
-            #
-            # window.mainloop()
+            def create_rest():
+                ice_cream_restaurant = IceCreamStand(e1.get(), e2.get(), e3.get(),
+                                                     ['пломбир', 'сливочное', 'молочное', 'крем-брюле', 'шербет',
+                                                      'мягкое'],
+                                                     e4.get(), e5.get())
+                label2 = Label(window, text=ice_cream_restaurant.restaurant_name, font='times 18 bold')
+                label2.place(x=450, y=140)
+                label3 = Label(window, text=f'Кухня: {ice_cream_restaurant.cuisine_type}', font='times 13')
+                label3.place(x=470, y=220)
+                label4 = Label(window, text=f'Рейтинг: {ice_cream_restaurant.rating_points}', font='times 13')
+                label4.place(x=470, y=250)
+                label11 = Label(window, text=f'Локация: {ice_cream_restaurant.location}', font='times 13')
+                label11.place(x=470, y=280)
+                label12 = Label(window, text=f'Время работы: {ice_cream_restaurant.time}', font='times 13')
+                label12.place(x=470, y=310)
+                label13 = Label(window, text='Список блюд:', font='times 13')
+                label13.place(x=470, y=350)
+                flavors_text = ''
+                for i in range(0, len(ice_cream_restaurant.flavors), 2):
+                    if i + 1 < len(ice_cream_restaurant.flavors):
+                        flavors_text += f'{ice_cream_restaurant.flavors[i]}, {ice_cream_restaurant.flavors[i + 1]}\n'
+                    else:
+                        flavors_text += f'{ice_cream_restaurant.flavors[i]}\n'
+                label14 = Label(window, text=flavors_text, font='times 13', justify='left')
+                label14.place(x=470, y=390)
+
+            window = Tk()
+            window.geometry('900x700')
+            label1 = Label(window, text='Создаем ресторан', font='times 25 bold')
+            label1.place(x=450, y=50, anchor='center')
+
+            label5 = Label(window, text='Выберите действие:', font='times 17')
+            label5.place(x=20, y=140)
+
+            label6 = Label(window, text='Название ресторана:', font='times 12')
+            label6.place(x=20, y=200)
+            e1 = Entry(window)
+            e1.place(x=20, y=230)
+
+            label7 = Label(window, text='Кухня:', font='times 12')
+            label7.place(x=20, y=270)
+            e2 = Entry(window)
+            e2.place(x=20, y=300)
+
+            label8 = Label(window, text='Рейтинг:', font='times 12')
+            label8.place(x=20, y=340)
+            e3 = Entry(window)
+            e3.place(x=20, y=370)
+
+            label9 = Label(window, text='Локация:', font='times 12')
+            label9.place(x=20, y=410)
+            e4 = Entry(window)
+            e4.place(x=20, y=440)
+
+            label10 = Label(window, text='Время работы:', font='times 12')
+            label10.place(x=20, y=480)
+            e5 = Entry(window)
+            e5.place(x=20, y=510)
+
+            b = Button(window, text='Создать', width=20, command=create_rest)
+            b.place(x=20, y=580)
+
+            window.mainloop()
         case _:
             print('такого задания нет!')
     pass
